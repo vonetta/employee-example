@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Employee Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <style>
+        body {
+        background: #f6f6f6;
+        }
+        form input {
+        font-size:18px;
+        }
+        .card {
+        border: 7px solid lightgray;
+        padding: 5px;
+        display:none;
+     
+       
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Sabio PreWork Exercise</a>
+                    </div>
+                   
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row col-md-5">
+                <form>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" placeholder="Age">
+                    </div>
+
+                    <fieldset>
+                        <legend>Gender:</legend>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male"> M
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female"> F
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Other"> Other
+                        </label>
+                    </fieldset>
+                    <br />
+
+                    <div class="form-group">
+                        <label for="salary">Salary</label>
+                        <input type="number" class="form-control" id="salary" placeholder="Salary">
+                    </div>
+
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="Checkbox1" value="manager" name="manager"> Manager
+                    </label><br />
+                    <br />
+                    <label>Comments:</label>
+                    <textarea class="form-control" rows="3" id="comments"></textarea>
+                    <br />
+                    <button type="submit" class="btn btn-primary" id="submit">Submit Profile</button>
+                    <button type="submit" class="btn btn-success pull-right" id="calculate">Calculate Tax</button>
+                </form>
+            </div>
+
+            <div class="row col-md-5 col-md-offset-2">
+                <div class="card">
+                    <div class="card-block text-center">
+                        <h1 class="card-title" id="fName"></h1>
+                        <h2 class="card-subtitle mb-2 text-muted" id="ageValue"></h2>
+                        <h3 class="card-text" id="genderValue"></h3>
+                        <h4 class="card-text" id="salaryValue"></h4>
+                        <h5 class="card-text" id="managerValue"></h5>
+                        <h6 class="card-text" id="commentsValue"></h6>
+                        <p class="card-text" id="exemptMessage"></p>
+                        <p class="card-text" id="stateTax"></p>
+                        <p class="card-text" id="fedTax"></p>
+                 </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+
+        var readForm = function () {
+            var firstName = $("#firstName").val();
+            var lastName = $("#lastName").val();
+            var age = $("#age").val();
+            var gender = $('input[name="inlineRadioOptions"]:checked').val();
+            var salary = $("#salary").val();
+            var manager = $('input[name="manager"]:checked').val();
+            var comments = $("#comments").val();
+       
+
+            var formData = {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                gender: gender,
+                salary: salary,
+                manager: manager,
+                comments: comments
+            }
+            return formData;
+        }
+
+        var submitFunction = function (e) {
+            e.preventDefault();
+            var storedFormData = readForm();
+            writeData(storedFormData);
+            $(".card").show();
+        }
+
+        var writeData = function (data) {
+            //write to dom
+            $("#fName").text(data.firstName + " " + data.lastName);
+            $("#ageValue").text(data.age);
+            $("#genderValue").text(data.gender);
+            $("#salaryValue").text(data.salary);
+            $("#managerValue").text(data.manager);
+            $("#commentsValue").text(data.comments);
+            $("#stateTax").text("State Tax: ");
+            $("#fedTax").text("Federal Tax: ");    
+        }
+
+        var calculateTax = {
+            state: function (x) {
+                return x * 0.09;
+            },
+            federal: function (num) {
+                if (num > 10000) {
+                    return num * 0.2;
+                }
+                else {
+                    return num * 1;
+                }
+            },
+            exempt: true
+        }
+
+        var calculateFunction = function (e) {
+            e.preventDefault();
+
+            var salary = $("#salary").val();//reading the salary
+            var calState = calculateTax.state(salary);
+            var calFed = calculateTax.federal(salary);    
+            //console.log('input[name="manager"]:checked');
+            if ($("#Checkbox1").prop('checked')) {            
+                $("#exemptMessage").text("Managers are exempt");
+                calState = 0;
+                calFed = 0;
+                $("#stateTax").text("State Tax: " + calState);
+                $("#fedTax").text("Federal Tax: " + calFed);            
+            }
+            else {
+                $("#stateTax").text("State Tax: " +  );
+                $("#fedTax").text("Federal Tax: " + calFed);
+            }    
+        }
+
+        $("#submit").on("click", submitFunction);
+        $("#calculate").on("click", calculateFunction);      
+    </script>
+</body>
+</html>

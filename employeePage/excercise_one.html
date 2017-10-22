@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var animal = {
+            species: "lion",
+            name: "max",
+            legs: 2,
+            fly: false
+        }
+
+        //dot notation
+        animal.isPrey = false;
+        animal.isPredator = true;
+        console.log(animal);
+        console.log(animal.isPrey);
+        //bracket notation
+        animal["enemies"] = "hyenas";
+        console.log(animal.enemies);
+        //change the animal
+        animal.species = "wolf";
+        animal.name = "Grey";
+        animal.legs = 4;
+        animal.fly = true;
+        animal.isPrey = true;
+        animal.isPredator = false;
+        animal.enemies = "Bears";
+
+        var transportation = {
+            car : {
+                make: "Honda",
+                model: "civic",
+                year: 2017
+            },
+            plane : {
+                model: "jet",
+                airline: "jetblue"
+            },
+            train :{
+                station: "Penn Station",
+                wagons: 20
+            }
+        }
+        console.log(transportation.plane.model);
+        console.log(transportation.train.wagons);
+        console.log(transportation.car.year);
+        //update the transpotation object
+        transportation["car"]["make"] = "BMW";
+        transportation["plane"]["airline"] = "AA";
+        transportation.train.station = "LA";
+
+
+    </script>
+</body>
+</html>

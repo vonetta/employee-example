@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Excercise Two - Functions</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        var calculateTax = {
+            state: function (x) {
+                return x * 0.09;
+            },
+            federal: function (num) {
+                if (num > 10000) {
+                    return num * 0.2;
+                }
+                else {
+                    return num * 1;
+                }
+            },
+            exempt: true
+        }
+
+        console.log(calculateTax.state(15000));
+        console.log(calculateTax.state(55000));
+        console.log(calculateTax.federal(18000));
+        console.log(calculateTax.federal(65000));
+
+    </script>
+
+</body>
+</html>

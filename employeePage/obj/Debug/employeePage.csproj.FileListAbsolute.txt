@@ -1,0 +1,9 @@
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\bin\employeePage.dll.config
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\bin\employeePage.dll
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\bin\employeePage.pdb
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\obj\Debug\employeePage.csprojResolveAssemblyReference.cache
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\obj\Debug\employeePage.csproj.CoreCompileInputs.cache
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\obj\Debug\employeePage.dll
+C:\Users\steve\Documents\Sabio Prework\employeePage\employeePage\obj\Debug\employeePage.pdb
